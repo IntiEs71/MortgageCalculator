@@ -1,4 +1,4 @@
-package com.example.homemortgage.model
+package com.example.homemortgage.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
