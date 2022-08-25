@@ -1,7 +1,8 @@
-package com.example.homemortgage
+package com.example.homemortgage.model
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.homemortgage.R
 
 /**
  * Inti Espejo
