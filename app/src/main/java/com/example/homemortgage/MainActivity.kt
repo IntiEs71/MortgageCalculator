@@ -8,7 +8,6 @@ import android.os.Bundle
  * James Jang
  *
  *
- *
  */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
