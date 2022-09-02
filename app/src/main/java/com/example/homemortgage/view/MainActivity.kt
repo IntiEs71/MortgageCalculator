@@ -1,15 +1,14 @@
 package com.example.homemortgage.view
 
-import android.content.Intent
-import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homemortgage.R
 import android.text.TextWatcher
 import android.text.Editable
 
+import android.widget.Button
+import android.content.Intent
+import android.os.Bundle
+import android.widget.EditText
 
 /**
  * Inti Espejo
@@ -21,21 +20,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // calculate button
-        val calc = findViewById<Button>(R.id.button)
+        val calc = findViewById<Button>(R.id.calcButton)
 
         calc.setEnabled(false)
         calc.setClickable(false)
 
         // input text fields
-        val period = findViewById<EditText>(R.id.editTextNumber2)
-        val rate = findViewById<EditText>(R.id.editTextNumber3)
-        val amount = findViewById<EditText>(R.id.editTextNumber4)
-        val principal = findViewById<EditText>(R.id.editTextNumber5)
-
-        //period.getText().toString().isEmpty()
-        //TextUtils.isEmpty(period.getText().toString())
-
-        //Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show()
+        val period = findViewById<EditText>(R.id.periodEditText)
+        val rate = findViewById<EditText>(R.id.rateEditText)
+        val amount = findViewById<EditText>(R.id.amountEditText)
+        val principal = findViewById<EditText>(R.id.principalEditText)
 
         period.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -45,10 +39,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (period.getText().toString().length > 0
-                    && rate.getText().toString().length > 0
-                    && amount.getText().toString().length > 0
-                    && principal.getText().toString().length > 0) {
+                if (period.getText().toString().isNotEmpty()
+                    && rate.getText().toString().isNotEmpty()
+                    && amount.getText().toString().isNotEmpty()
+                    && principal.getText().toString().isNotEmpty()) {
                     calc.setEnabled(true)
                     calc.setClickable(true)
                 }
@@ -67,10 +61,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (period.getText().toString().length > 0
-                    && rate.getText().toString().length > 0
-                    && amount.getText().toString().length > 0
-                    && principal.getText().toString().length > 0) {
+                if (period.getText().toString().isNotEmpty()
+                    && rate.getText().toString().isNotEmpty()
+                    && amount.getText().toString().isNotEmpty()
+                    && principal.getText().toString().isNotEmpty()) {
                     calc.setEnabled(true)
                     calc.setClickable(true)
                 }
@@ -84,15 +78,13 @@ class MainActivity : AppCompatActivity() {
         amount.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (period.getText().toString().length > 0
-                    && rate.getText().toString().length > 0
-                    && amount.getText().toString().length > 0
-                    && principal.getText().toString().length > 0) {
+                if (period.getText().toString().isNotEmpty()
+                    && rate.getText().toString().isNotEmpty()
+                    && amount.getText().toString().isNotEmpty()
+                    && principal.getText().toString().isNotEmpty()) {
                     calc.setEnabled(true)
                     calc.setClickable(true)
                 }
@@ -106,15 +98,13 @@ class MainActivity : AppCompatActivity() {
         principal.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (period.getText().toString().length > 0
-                    && rate.getText().toString().length > 0
-                    && amount.getText().toString().length > 0
-                    && principal.getText().toString().length > 0) {
+                if (period.getText().toString().isNotEmpty()
+                    && rate.getText().toString().isNotEmpty()
+                    && amount.getText().toString().isNotEmpty()
+                    && principal.getText().toString().isNotEmpty()) {
                     calc.setEnabled(true)
                     calc.setClickable(true)
                 }
@@ -126,8 +116,8 @@ class MainActivity : AppCompatActivity() {
         })
 
         calc.setOnClickListener {
-            val intent = Intent(this, com.example.homemortgage.SecondActivity::class.java)
-            startActivity(intent)
+                val intent = Intent(this, com.example.homemortgage.SecondActivity::class.java)
+                startActivity(intent)
         }
     }
 }

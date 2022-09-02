@@ -7,7 +7,7 @@
     tools:context=".view.MainActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/loanRateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Loan Rate"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.403" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/principalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Principal Amount Paid"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.698" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/loanPeriodTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Loan Period"
@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.269" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/loanAmtTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Loan Amount"
@@ -59,20 +59,21 @@
         app:layout_constraintVertical_bias="0.547" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/calcButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="65dp"
         android:text="Calculate"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber5"
+        app:layout_constraintTop_toBottomOf="@+id/principalEditText"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/periodEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -87,7 +88,7 @@
         app:layout_constraintVertical_bias="0.323" />
 
     <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/rateEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -102,7 +103,7 @@
         app:layout_constraintVertical_bias="0.47" />
 
     <EditText
-        android:id="@+id/editTextNumber4"
+        android:id="@+id/amountEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -117,7 +118,7 @@
         app:layout_constraintVertical_bias="0.62" />
 
     <EditText
-        android:id="@+id/editTextNumber5"
+        android:id="@+id/principalEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
