@@ -45,34 +45,89 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (period.getText().toString().length > 0
+                    && rate.getText().toString().length > 0
+                    && amount.getText().toString().length > 0
+                    && principal.getText().toString().length > 0) {
+                    calc.setEnabled(true)
+                    calc.setClickable(true)
+                }
+                else {
+                    calc.setEnabled(false)
+                    calc.setClickable(false)
+                }
             }
         })
 
-        if (period.getText().toString() == "") {
-            calc.setEnabled(false)
-            calc.setClickable(false)
-        }
-        else if (rate.getText().toString() == "") {
-            calc.setEnabled(false)
-            calc.setClickable(false)
-        }
-        else if (amount.getText().toString() == "") {
-            calc.setEnabled(false)
-            calc.setClickable(false)
-        }
-        else if (principal.getText().toString() == "") {
-            calc.setEnabled(false)
-            calc.setClickable(false)
-        }
-        else {
-            // All number fields have been entered
-            calc.setEnabled(true)
-            calc.setClickable(true)
-
-            calc.setOnClickListener {
-                val intent = Intent(this, com.example.homemortgage.SecondActivity::class.java)
-                startActivity(intent)
+        rate.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
             }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (period.getText().toString().length > 0
+                    && rate.getText().toString().length > 0
+                    && amount.getText().toString().length > 0
+                    && principal.getText().toString().length > 0) {
+                    calc.setEnabled(true)
+                    calc.setClickable(true)
+                }
+                else {
+                    calc.setEnabled(false)
+                    calc.setClickable(false)
+                }
+            }
+        })
+
+        amount.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (period.getText().toString().length > 0
+                    && rate.getText().toString().length > 0
+                    && amount.getText().toString().length > 0
+                    && principal.getText().toString().length > 0) {
+                    calc.setEnabled(true)
+                    calc.setClickable(true)
+                }
+                else {
+                    calc.setEnabled(false)
+                    calc.setClickable(false)
+                }
+            }
+        })
+
+        principal.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (period.getText().toString().length > 0
+                    && rate.getText().toString().length > 0
+                    && amount.getText().toString().length > 0
+                    && principal.getText().toString().length > 0) {
+                    calc.setEnabled(true)
+                    calc.setClickable(true)
+                }
+                else {
+                    calc.setEnabled(false)
+                    calc.setClickable(false)
+                }
+            }
+        })
+
+        calc.setOnClickListener {
+            val intent = Intent(this, com.example.homemortgage.SecondActivity::class.java)
+            startActivity(intent)
         }
     }
 }
