@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         calc.setOnClickListener {
-                val intent = Intent(this, com.example.homemortgage.SecondActivity::class.java)
+                val intent = Intent(this, SecondActivity::class.java)
                 startActivity(intent)
         }
     }

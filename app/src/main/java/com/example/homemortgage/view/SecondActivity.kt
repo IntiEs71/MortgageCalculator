@@ -1,11 +1,9 @@
-package com.example.homemortgage
+package com.example.homemortgage.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.homemortgage.R
 
 
 class SecondActivity : AppCompatActivity() {
