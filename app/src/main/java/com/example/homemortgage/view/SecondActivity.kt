@@ -28,15 +28,16 @@ class SecondActivity : AppCompatActivity() {
         months.add("1")
 
         val table = findViewById<TableLayout>(R.id.table)
-        val headers = TableRow(this)
 
         for (i in months.indices) {
+            var row = TableRow(this)
             val t = TextView(this)
-            t.setText("uno")
-            table.addView(t)
+            t.setText(months[i].toString())
+            row.addView(t)
+            table.addView(row, TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         }
 
-        table.addView(headers, TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+        //table.addView(headers, TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
     }
 
     // makes back button go back to first screen
