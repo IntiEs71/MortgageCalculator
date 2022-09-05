@@ -32,8 +32,17 @@ class SecondActivity : AppCompatActivity() {
         for (i in months.indices) {
             var row = TableRow(this)
             val t = TextView(this)
+            val t2 = TextView(this)
+
             t.setText(months[i].toString())
+            t2.setText(months[i].toString())
+
+            t.setPadding(10, 10, 80, 10)
+            t2.setPadding(10, 10, 80, 10)
+
             row.addView(t)
+            row.addView(t2)
+
             table.addView(row, TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         }
 
