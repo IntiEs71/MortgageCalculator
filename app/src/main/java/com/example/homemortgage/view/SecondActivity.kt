@@ -8,12 +8,19 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homemortgage.R
+import com.example.homemortgage.controller.MortgageController
 
 
 class SecondActivity : AppCompatActivity() {
+
+    lateinit var table: TableLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+
+
+
 
         var bar = getSupportActionBar()
 
@@ -23,30 +30,55 @@ class SecondActivity : AppCompatActivity() {
             bar.setDisplayHomeAsUpEnabled(true)
         }
 
-        var months = ArrayList<String>()
-        months.add("Month")
-        months.add("1")
+        table = findViewById<TableLayout>(R.id.table)
 
-        val table = findViewById<TableLayout>(R.id.table)
+        val controller = MortgageController()
+        //
+        controller.getValuesByRow()
 
-        for (i in months.indices) {
+    }
+
+    fun addToTable(list: ArrayList<String>): Void? {
+
+        //var headers = TableRow(this)
+        // text views for headers
+        //val tv1 = TextView(this)
+        //val tv2 = TextView(this)
+        //val tv3 = TextView(this)
+        //val tv4 = TextView(this)
+        //val tv5 = TextView(this)
+
             var row = TableRow(this)
-            val t = TextView(this)
-            val t2 = TextView(this)
 
-            t.setText(months[i].toString())
-            t2.setText(months[i].toString())
+            val pd = TextView(this)
+            val principal = TextView(this)
+            val interest = TextView(this)
+            val monthly = TextView(this)
+            val balance = TextView(this)
 
-            t.setPadding(10, 10, 80, 10)
-            t2.setPadding(10, 10, 80, 10)
+            pd.setText(list[0])
+            //principal.setText(list[1].toString())
+            //interest.setText(list[2].toString())
+            //monthly.setText(list[3].toString())
+            //balance.setText(list[4].toString())
 
-            row.addView(t)
-            row.addView(t2)
+            pd.setPadding(10, 10, 80, 10)
+            //principal.setPadding(10, 10, 80, 10)
+            //interest.setPadding(10, 10, 80, 10)
+            //monthly.setPadding(10, 10, 80, 10)
+            //balance.setPadding(10, 10, 80, 10)
+
+            row.addView(pd)
+            //row.addView(principal)
+            //row.addView(interest)
+            //row.addView(monthly)
+            //row.addView(balance)
 
             table.addView(row, TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
-        }
 
-        //table.addView(headers, TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+
+
+        return null
     }
 
     // makes back button go back to first screen

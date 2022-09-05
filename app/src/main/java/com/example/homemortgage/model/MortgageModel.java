@@ -12,6 +12,7 @@ public class MortgageModel {
 
     private double principalPmt;
     private double interestPmt;
+    private double monthlyPmt;
 
     // Default Constructor
     public MortgageModel(double loanAmount, double loanRate, int loanPdYrs){
@@ -34,6 +35,7 @@ public class MortgageModel {
                 ( 1 - ( Math.pow( (1 + loanRate/12), -calcNumPayments() ) ) );
         BigDecimal bd = new BigDecimal(monthly).setScale(2, RoundingMode.HALF_UP);
         monthly = bd.doubleValue();
+        monthlyPmt = monthly;
         return monthly;
     }
 
@@ -66,6 +68,11 @@ public class MortgageModel {
      */
     public double getPrincipalPmt(){
         return principalPmt;
+    }
+
+    public double updateBalance(){
+        loanAmount -= monthlyPmt;
+        return  loanAmount;
     }
 
 
