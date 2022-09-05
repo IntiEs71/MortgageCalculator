@@ -1,7 +1,11 @@
 package com.example.homemortgage.view
 
+import android.app.ActionBar.LayoutParams
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homemortgage.R
 
@@ -13,10 +17,26 @@ class SecondActivity : AppCompatActivity() {
 
         var bar = getSupportActionBar()
 
-        // shows back button
         if (bar != null) {
+            bar.setTitle("Amortization Schedule")
+            // shows back button
             bar.setDisplayHomeAsUpEnabled(true)
         }
+
+        var months = ArrayList<String>()
+        months.add("Month")
+        months.add("1")
+
+        val table = findViewById<TableLayout>(R.id.table)
+        val headers = TableRow(this)
+
+        for (i in months.indices) {
+            val t = TextView(this)
+            t.setText("uno")
+            table.addView(t)
+        }
+
+        table.addView(headers, TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
     }
 
     // makes back button go back to first screen

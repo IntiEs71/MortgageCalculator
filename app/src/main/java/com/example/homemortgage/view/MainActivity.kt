@@ -20,6 +20,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var bar = getSupportActionBar()
+
+        if (bar != null) {
+            bar.setTitle("Mortgage Calculator")
+        }
+
         // calculate button
         val calc = findViewById<Button>(R.id.calcButton)
 
