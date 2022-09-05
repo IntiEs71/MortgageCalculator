@@ -9,6 +9,7 @@ import android.widget.Button
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
+import com.example.homemortgage.controller.MortgageController
 
 /**
  * Inti Espejo
@@ -30,6 +31,13 @@ class MainActivity : AppCompatActivity() {
         val rate = findViewById<EditText>(R.id.rateEditText)
         val amount = findViewById<EditText>(R.id.amountEditText)
         val principal = findViewById<EditText>(R.id.principalEditText)
+
+
+        // added
+        val controller = MortgageController()
+        controller.getMonthly()
+
+        //
 
         period.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {

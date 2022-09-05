@@ -1,16 +1,22 @@
 package com.example.homemortgage.controller;
 
+import com.example.homemortgage.model.MortgageModel;
+import com.example.homemortgage.view.MainActivity;
+
 public class MortgageController {
-    private int period;
-    private int rate;
-    private int amount;
-    private int principal;
+
+    private MainActivity view;
+    private MortgageModel model;
 
     public MortgageController() {
-        this.period = period;
-        this.rate = rate;
-        this.amount = amount;
-        this.principal = principal;
+        model = new MortgageModel(100000, 0.05,10);
+    }
+
+    public void getMonthly(){
+        double monthly = model.calcMonthlyPmt();
+        System.out.println("Period  Principal   Interest    Payment     Balance");
+
+
     }
 
 
