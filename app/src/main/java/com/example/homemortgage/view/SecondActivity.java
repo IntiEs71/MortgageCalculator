@@ -1,10 +1,7 @@
 package com.example.homemortgage.view;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -37,13 +34,6 @@ public class SecondActivity extends AppCompatActivity {
             bar.setDisplayHomeAsUpEnabled(true);
         }
 
-        // set views
-        TextView period = new TextView(this);
-        TextView principal = new TextView(this);
-        TextView interest = new TextView(this);
-        TextView monthly = new TextView(this);
-        TextView balance = new TextView(this);
-
         // set model, view, and controller
         MortgageModel model = new MortgageModel(100000.0D, 0.05D, 10);
         SecondActivity view = new SecondActivity();
@@ -52,6 +42,14 @@ public class SecondActivity extends AppCompatActivity {
         TableLayout table = this.findViewById(R.id.table);
 
         for( int i = 0; i < 2; i++){
+
+            // set views
+            TextView period = new TextView(this);
+            TextView principal = new TextView(this);
+            TextView interest = new TextView(this);
+            TextView monthly = new TextView(this);
+            TextView balance = new TextView(this);
+
             // get row
             ArrayList<String> list = controller.getRow();
 
@@ -66,6 +64,7 @@ public class SecondActivity extends AppCompatActivity {
             row.addView(period);
 
             table.addView(row, (new android.widget.TableLayout.LayoutParams(-2, -2)));
+
         }
 
     }

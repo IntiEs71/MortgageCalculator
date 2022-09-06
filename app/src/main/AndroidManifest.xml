@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MortgageCalculator">
         <activity
-            android:name=".view.secondActivity"
+            android:name=".view.SecondActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"
