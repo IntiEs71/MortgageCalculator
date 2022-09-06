@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         // sends input data to second activity
         val intent = Intent(this, SecondActivity::class.java)
-        intent.putExtra("amount")
+        //intent.putExtra("amount")
         startActivity(intent)
 
         period.addTextChangedListener(object : TextWatcher {
