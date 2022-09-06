@@ -37,7 +37,7 @@ public class MortgageModel {
         BigDecimal bd = new BigDecimal(monthly).setScale(2, RoundingMode.HALF_UP);
         monthly = bd.doubleValue();
         monthlyPmt = monthly;
-        return monthly;
+        return monthlyPmt;
     }
 
     /**
@@ -45,6 +45,8 @@ public class MortgageModel {
      */
     public void calcMonthlyInterest(){
         interestPmt = loanAmount * loanRate / 12;
+        BigDecimal bd = new BigDecimal(interestPmt).setScale(2, RoundingMode.HALF_UP);
+        interestPmt = bd.doubleValue();
     }
 
     /**
@@ -53,6 +55,8 @@ public class MortgageModel {
     public void calcMonthlyPrincipal(){
         calcMonthlyInterest();
         principalPmt = calcMonthlyPmt() - interestPmt;
+        BigDecimal bd = new BigDecimal(principalPmt).setScale(2, RoundingMode.HALF_UP);
+        principalPmt = bd.doubleValue();
     }
 
     /**

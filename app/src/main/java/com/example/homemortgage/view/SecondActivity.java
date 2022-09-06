@@ -41,8 +41,7 @@ public class SecondActivity extends AppCompatActivity {
 
         TableLayout table = this.findViewById(R.id.table);
 
-        for( int i = 0; i < 2; i++){
-
+        for( int i = 1; i < 5; i++){
             // set views
             TextView period = new TextView(this);
             TextView principal = new TextView(this);
@@ -58,10 +57,24 @@ public class SecondActivity extends AppCompatActivity {
 
             // set text
             period.setText(list.get(0));
+            principal.setText(list.get(1));
+            interest.setText(list.get(2));
+            monthly.setText(list.get(3));
+            balance.setText(list.get(4));
 
+            // set padding
             period.setPadding(10, 10, 80, 10);
+            principal.setPadding(10, 10, 80, 10);
+            interest.setPadding(10, 10, 80, 10);
+            monthly.setPadding(10, 10, 80, 10);
+            balance.setPadding(10, 10, 80, 10);
 
+            // add views
             row.addView(period);
+            row.addView(principal);
+            row.addView(interest);
+            row.addView(monthly);
+            row.addView(balance);
 
             table.addView(row, (new android.widget.TableLayout.LayoutParams(-2, -2)));
 
