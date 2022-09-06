@@ -27,7 +27,7 @@ public class MortgageController {
 
         DecimalFormat df = new DecimalFormat("0.00");
 
-        for (int i = 1; i <= pdLength; i++) {
+        for (int i = 0; i < pdLength; i++) {
 
             double monthlyPmt = model.calcMonthlyPmt();
 
@@ -39,7 +39,7 @@ public class MortgageController {
             double monthlyPrincipal = model.getPrincipalPmt();
             double balance = 0;
 
-            if(i == pdLength){
+            if(i == pdLength-1){
                 monthlyPrincipal = model.getBalance() - model.getInterestPmt();
                 monthlyPmt = monthlyInterest + monthlyPrincipal;
             }

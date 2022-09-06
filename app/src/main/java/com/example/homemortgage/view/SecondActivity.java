@@ -66,9 +66,11 @@ public class SecondActivity extends AppCompatActivity {
         TableLayout table = this.findViewById(R.id.table);
 
         // get schedule
-        ArrayList<String[]> list = controller.getMonthlySchedule();
+        ArrayList<String[] > list = controller.getMonthlySchedule();
 
-        for (int i = 0; i < list.size(); i++) {
+        System.out.println("Size"+list.size());
+
+        for( int i = 0; i < list.size(); i++){
             // set views
             TextView period = new TextView(this);
             TextView principal = new TextView(this);
@@ -80,18 +82,23 @@ public class SecondActivity extends AppCompatActivity {
             TableRow row = new TableRow(this);
 
             // set text
-            period.setText(list.get(i)[0]);
+            if(i == 0){
+                period.setText("Month");
+            }
+            else{
+                period.setText(String.valueOf(i));
+            }
             principal.setText(list.get(i)[1]);
             interest.setText(list.get(i)[2]);
             monthly.setText(list.get(i)[3]);
             balance.setText(list.get(i)[4]);
 
             // set padding
-            period.setPadding(10, 10, 50, 10);
-            principal.setPadding(10, 10, 50, 10);
-            interest.setPadding(10, 10, 50, 10);
-            monthly.setPadding(10, 10, 50, 10);
-            balance.setPadding(10, 10, 50, 10);
+            period.setPadding(10, 10, 40, 10);
+            principal.setPadding(10, 10, 40, 10);
+            interest.setPadding(10, 10, 40, 10);
+            monthly.setPadding(10, 10, 40, 10);
+            balance.setPadding(10, 10, 40, 10);
 
             // add views
             row.addView(period);
