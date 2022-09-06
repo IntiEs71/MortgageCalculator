@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         val amount = findViewById<EditText>(R.id.amountEditText)
         val principal = findViewById<EditText>(R.id.principalEditText)
 
-        // sends input data to second activity
+        // sends user input data to second activity
         val intent = Intent(this, SecondActivity::class.java)
         //intent.putExtra("amount")
         startActivity(intent)
