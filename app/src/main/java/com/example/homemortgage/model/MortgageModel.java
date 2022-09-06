@@ -2,6 +2,7 @@ package com.example.homemortgage.model;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Observable;
 
 // Create Mortgage Model class and define methods and return calculations
 public class MortgageModel {

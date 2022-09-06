@@ -9,7 +9,6 @@ import android.widget.Button
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
-import com.example.homemortgage.controller.MortgageController
 
 /**
  * Inti Espejo
@@ -19,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         var bar = getSupportActionBar()
 
@@ -38,10 +38,6 @@ class MainActivity : AppCompatActivity() {
         val amount = findViewById<EditText>(R.id.amountEditText)
         val principal = findViewById<EditText>(R.id.principalEditText)
 
-
-        // added
-        val controller = MortgageController()
-        controller.getMonthly()
 
         //
 
