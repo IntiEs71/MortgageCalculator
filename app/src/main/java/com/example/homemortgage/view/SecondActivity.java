@@ -22,9 +22,12 @@ import kotlin.jvm.internal.Intrinsics;
 
 public class SecondActivity extends AppCompatActivity {
 
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_second);
+
+
 
         // set title
         ActionBar bar = this.getSupportActionBar();
@@ -41,7 +44,10 @@ public class SecondActivity extends AppCompatActivity {
 
         TableLayout table = this.findViewById(R.id.table);
 
-        for( int i = 1; i < 5; i++){
+        // get row
+        ArrayList<String[] > list = controller.getMonthlySchedule();
+
+        for( int i = 0; i < list.size(); i++){
             // set views
             TextView period = new TextView(this);
             TextView principal = new TextView(this);
@@ -49,25 +55,22 @@ public class SecondActivity extends AppCompatActivity {
             TextView monthly = new TextView(this);
             TextView balance = new TextView(this);
 
-            // get row
-            ArrayList<String> list = controller.getRow();
-
             // set row
             TableRow row = new TableRow(this);
 
             // set text
-            period.setText(list.get(0));
-            principal.setText(list.get(1));
-            interest.setText(list.get(2));
-            monthly.setText(list.get(3));
-            balance.setText(list.get(4));
+            period.setText(list.get(i)[0]);
+            principal.setText(list.get(i)[1]);
+            interest.setText(list.get(i)[2]);
+            monthly.setText(list.get(i)[3]);
+            balance.setText(list.get(i)[4]);
 
             // set padding
-            period.setPadding(10, 10, 80, 10);
-            principal.setPadding(10, 10, 80, 10);
-            interest.setPadding(10, 10, 80, 10);
-            monthly.setPadding(10, 10, 80, 10);
-            balance.setPadding(10, 10, 80, 10);
+            period.setPadding(10, 10, 50, 10);
+            principal.setPadding(10, 10, 50, 10);
+            interest.setPadding(10, 10, 50, 10);
+            monthly.setPadding(10, 10, 50, 10);
+            balance.setPadding(10, 10, 50, 10);
 
             // add views
             row.addView(period);

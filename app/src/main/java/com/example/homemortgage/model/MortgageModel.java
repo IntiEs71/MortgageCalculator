@@ -10,6 +10,7 @@ public class MortgageModel {
     private int loanPdYrs;
     private double loanRate;
     private double loanAmount;
+    private double principal;
 
     private double principalPmt;
     private double interestPmt;
@@ -20,6 +21,7 @@ public class MortgageModel {
         this.loanAmount = loanAmount;
         this.loanRate = loanRate;
         this.loanPdYrs = loanPdYrs;
+        this.principal = loanAmount;
 
         this.principalPmt = 0;
         this.interestPmt = 0;
@@ -32,11 +34,20 @@ public class MortgageModel {
 
     // calculate monthly mortgage payment formula
     public double calcMonthlyPmt(){
-        double monthly = (loanRate/12 * loanAmount) /
+        double monthly = (loanRate/12 * principal) /
                 ( 1 - ( Math.pow( (1 + loanRate/12), -calcNumPayments() ) ) );
         BigDecimal bd = new BigDecimal(monthly).setScale(2, RoundingMode.HALF_UP);
         monthly = bd.doubleValue();
+        // lower loan amount
+        //loanAmount -= monthly;
+        return monthly;
+    }
+
+    public void setMonthlyPmt(double monthly){
         monthlyPmt = monthly;
+    }
+
+    public double getMonthlyPmt(){
         return monthlyPmt;
     }
 
@@ -76,7 +87,9 @@ public class MortgageModel {
     }
 
     public double updateBalance(){
-        loanAmount -= monthlyPmt;
+        loanAmount -= principalPmt;
+        BigDecimal bd = new BigDecimal(loanAmount).setScale(2, RoundingMode.HALF_UP);
+        loanAmount = bd.doubleValue();
         return  loanAmount;
     }
 

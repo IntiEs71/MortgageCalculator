@@ -15,45 +15,40 @@ public class MortgageController {
         this.view = view;
     }
 
-    public void getMonthly(){
 
-        System.out.println("Period  Principal   Interest    Payment     Balance");
-    }
+    public ArrayList<String[] > getMonthlySchedule() {
 
-    public ArrayList<String> getRow(){
-
-        ArrayList<String> valuesList = new ArrayList<String>();
+        ArrayList<String[]> valuesList = new ArrayList<String[]>();
 
         int pdLength = model.calcNumPayments();
 
-        double monthlyPmt = model.calcMonthlyPmt();
+        String[] headers = {"Month", "Principal", "Interest", "Total Paid", "Balance"};
+        valuesList.add(headers);
 
-        // calculations
-        model.calcMonthlyInterest();
-        model.calcMonthlyPrincipal();
+        for (int i = 1; i <= pdLength; i++) {
 
-        double monthlyInterest = model.getInterestPmt();
-        double monthlyPrincipal = model.getPrincipalPmt();
+            double monthlyPmt = model.calcMonthlyPmt();
 
-        double balance = model.updateBalance();
+            // calculations
+            model.calcMonthlyInterest();
+            model.calcMonthlyPrincipal();
 
-        //for(int i = 1; i <= pdLength; i++){
+            double monthlyInterest = model.getInterestPmt();
+            double monthlyPrincipal = model.getPrincipalPmt();
 
-            // add values to list
-            valuesList.add( Integer.toString(pdLength) );
-            valuesList.add( Double.toString(monthlyPrincipal) );
-            valuesList.add( Double.toString(monthlyInterest) );
-            valuesList.add( Double.toString(monthlyPmt) );
-            valuesList.add( Double.toString(model.updateBalance()) );
+            double balance = model.updateBalance();
 
-            // call view method to add list
-            return valuesList;
-
-            //}
-
-
-
+            // add values to array
+            String[] values = {Integer.toString(pdLength),
+                    Double.toString(monthlyPrincipal),
+                    Double.toString(monthlyInterest),
+                    Double.toString(monthlyPmt),
+                    Double.toString(balance)
+            };
+            // add array to list
+            valuesList.add(values);
+        }
+        // return list of arrays
+        return valuesList;
     }
-
-
 }
