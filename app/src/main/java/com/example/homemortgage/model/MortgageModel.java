@@ -2,9 +2,10 @@ package com.example.homemortgage.model;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Observable;
 
-// Create Mortgage Model class and define methods and return calculations
+/**
+ * Create Mortgage Model class and define methods and return calculations
+ */
 public class MortgageModel {
     // encapsulate main variables
     private int loanPdYrs;
@@ -16,9 +17,18 @@ public class MortgageModel {
     private double interestPmt;
     private double monthlyPmt;
 
-    // Default Constructor
+    /**
+     * Default Constructor
+     * @param loanAmount
+     * double value representing total loan amount
+     * @param loanRate
+     * double value representing total loan rate
+     * @param loanPdYrs
+     * int value representing loan period in years
+     */
     public MortgageModel(double loanAmount, double loanRate, int loanPdYrs){
         this.loanAmount = loanAmount;
+        // convert percentage double to decimal
         this.loanRate = loanRate/100;
         this.loanPdYrs = loanPdYrs;
         this.principal = loanAmount;
@@ -27,26 +37,40 @@ public class MortgageModel {
         this.interestPmt = 0;
     }
 
-    // given loan period in years calculate number of monthly payments
+    /**
+     * given loan period in years calculate number of monthly payments
+     * @return int value of number of payments
+     */
     public int calcNumPayments(){
         return loanPdYrs * 12;
     }
 
-    // calculate monthly mortgage payment formula
+    /**
+     *  calculate monthly mortgage payment formula
+     *
+     * @return double value
+     */
     public double calcMonthlyPmt(){
         double monthly = (loanRate/12 * principal) /
                 ( 1 - ( Math.pow( (1 + loanRate/12), -calcNumPayments() ) ) );
         BigDecimal bd = new BigDecimal(monthly).setScale(2, RoundingMode.HALF_EVEN);
         monthly = bd.doubleValue();
-        // lower loan amount
-        //loanAmount -= monthly;
         return monthly;
     }
 
+    /**
+     * Setter method for monthly payment
+     * @param monthly
+     * double value reprenting monthly payment
+     */
     public void setMonthlyPmt(double monthly){
         monthlyPmt = monthly;
     }
 
+    /**
+     * Getter method for monthly payment
+     * @return double value
+     */
     public double getMonthlyPmt(){
         return monthlyPmt;
     }
@@ -86,6 +110,11 @@ public class MortgageModel {
         return principalPmt;
     }
 
+    /**
+     * updates balance by subtracting principal payment ana returning
+     * the updated value
+     * @return double value
+     */
     public double updateBalance(){
         loanAmount -= principalPmt;
         BigDecimal bd = new BigDecimal(loanAmount).setScale(2, RoundingMode.HALF_DOWN);
@@ -93,10 +122,11 @@ public class MortgageModel {
         return  loanAmount;
     }
 
+    /**
+     * Getter method for balance
+     * @return double value
+     */
     public double getBalance(){
         return loanAmount;
     }
-
-
-
 }

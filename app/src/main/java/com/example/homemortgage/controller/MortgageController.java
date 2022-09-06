@@ -3,19 +3,32 @@ package com.example.homemortgage.controller;
 import com.example.homemortgage.model.MortgageModel;
 import com.example.homemortgage.view.SecondActivity;
 import java.text.DecimalFormat;
-
 import java.util.ArrayList;
 
+/**
+ * Controller class contains view and model and getter for schedule
+ */
 public class MortgageController {
 
     private MortgageModel model;
     private SecondActivity view;
 
+    /**
+     * Default Constructor
+     * @param model
+     * MortgageModel object
+     * @param view
+     * SecondActivity object
+     */
     public MortgageController(MortgageModel model, SecondActivity view) {
         this.model = model;
         this.view = view;
     }
 
+    /**
+     * Getter for monthly schedule
+     * @return an ArrayList of String arrays containing values that is called in view
+     */
     public ArrayList<String[] > getMonthlySchedule() {
 
         ArrayList<String[]> valuesList = new ArrayList<String[]>();
