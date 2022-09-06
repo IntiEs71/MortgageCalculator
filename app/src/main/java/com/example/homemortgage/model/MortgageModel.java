@@ -36,7 +36,7 @@ public class MortgageModel {
     public double calcMonthlyPmt(){
         double monthly = (loanRate/12 * principal) /
                 ( 1 - ( Math.pow( (1 + loanRate/12), -calcNumPayments() ) ) );
-        BigDecimal bd = new BigDecimal(monthly).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal(monthly).setScale(2, RoundingMode.HALF_EVEN);
         monthly = bd.doubleValue();
         // lower loan amount
         //loanAmount -= monthly;
@@ -56,7 +56,7 @@ public class MortgageModel {
      */
     public void calcMonthlyInterest(){
         interestPmt = loanAmount * loanRate / 12;
-        BigDecimal bd = new BigDecimal(interestPmt).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal(interestPmt).setScale(2, RoundingMode.HALF_EVEN);
         interestPmt = bd.doubleValue();
     }
 
@@ -66,7 +66,7 @@ public class MortgageModel {
     public void calcMonthlyPrincipal(){
         calcMonthlyInterest();
         principalPmt = calcMonthlyPmt() - interestPmt;
-        BigDecimal bd = new BigDecimal(principalPmt).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal(principalPmt).setScale(2, RoundingMode.HALF_EVEN);
         principalPmt = bd.doubleValue();
     }
 
@@ -88,9 +88,13 @@ public class MortgageModel {
 
     public double updateBalance(){
         loanAmount -= principalPmt;
-        BigDecimal bd = new BigDecimal(loanAmount).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal(loanAmount).setScale(2, RoundingMode.HALF_DOWN);
         loanAmount = bd.doubleValue();
         return  loanAmount;
+    }
+
+    public double getBalance(){
+        return loanAmount;
     }
 
 

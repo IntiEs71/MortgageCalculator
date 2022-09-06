@@ -9,6 +9,7 @@ import android.widget.Button
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
+import com.example.homemortgage.model.MortgageModel
 
 /**
  * Inti Espejo
@@ -38,9 +39,13 @@ class MainActivity : AppCompatActivity() {
         val principal = findViewById<EditText>(R.id.principalEditText)
 
         // sends user input data to second activity
-        val intent = Intent(this, SecondActivity::class.java)
+        //val intent = Intent(this, SecondActivity::class.java)
         //intent.putExtra("amount")
-        startActivity(intent)
+        //startActivity(intent)
+        //var intent = Intent(this, SecondActivity::class.java)
+        //var model = MortgageModel(100.0, 2.0, 2);
+        //intent.putExtra("MortgageModel", model)
+        //intent.putExtra("MortgageModel", model)
 
         period.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -125,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
 
         calc.setOnClickListener {
                 val intent = Intent(this, SecondActivity::class.java)

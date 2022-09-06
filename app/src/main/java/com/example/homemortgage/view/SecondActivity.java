@@ -35,13 +35,13 @@ public class SecondActivity extends AppCompatActivity {
         }
 
         // receives user input data from MainActivity
-        Bundle extras = getIntent().getExtras();
-        String amount = extras.getString("amount");
+        //Bundle extras = getIntent().getExtras();
+        //String amount = extras.getString("amount");
 
 
 
         // set model, view, and controller
-        MortgageModel model = new MortgageModel(amount, 0.05D, 10);
+        MortgageModel model = new MortgageModel(100000, 0.05D, 10);
         SecondActivity view = new SecondActivity();
         MortgageController controller = new MortgageController(model, view);
 
@@ -69,11 +69,11 @@ public class SecondActivity extends AppCompatActivity {
             balance.setText(list.get(i)[4]);
 
             // set padding
-            period.setPadding(10, 10, 50, 10);
-            principal.setPadding(10, 10, 50, 10);
-            interest.setPadding(10, 10, 50, 10);
-            monthly.setPadding(10, 10, 50, 10);
-            balance.setPadding(10, 10, 50, 10);
+            period.setPadding(10, 10, 40, 10);
+            principal.setPadding(10, 10, 40, 10);
+            interest.setPadding(10, 10, 40, 10);
+            monthly.setPadding(10, 10, 40, 10);
+            balance.setPadding(10, 10, 40, 10);
 
             // add views
             row.addView(period);
@@ -85,6 +85,8 @@ public class SecondActivity extends AppCompatActivity {
             table.addView(row, (new android.widget.TableLayout.LayoutParams(-2, -2)));
 
         }
+
+
 
     }
 

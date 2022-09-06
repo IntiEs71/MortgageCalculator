@@ -2,6 +2,7 @@ package com.example.homemortgage.controller;
 
 import com.example.homemortgage.model.MortgageModel;
 import com.example.homemortgage.view.SecondActivity;
+import java.text.DecimalFormat;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,6 @@ public class MortgageController {
         this.view = view;
     }
 
-
     public ArrayList<String[] > getMonthlySchedule() {
 
         ArrayList<String[]> valuesList = new ArrayList<String[]>();
@@ -24,6 +24,8 @@ public class MortgageController {
 
         String[] headers = {"Month", "Principal", "Interest", "Total Paid", "Balance"};
         valuesList.add(headers);
+
+        DecimalFormat df = new DecimalFormat("0.00");
 
         for (int i = 1; i <= pdLength; i++) {
 
@@ -35,15 +37,22 @@ public class MortgageController {
 
             double monthlyInterest = model.getInterestPmt();
             double monthlyPrincipal = model.getPrincipalPmt();
+            double balance = 0;
 
-            double balance = model.updateBalance();
+            if(i == pdLength){
+                monthlyPrincipal = model.getBalance() - model.getInterestPmt();
+                monthlyPmt = monthlyInterest + monthlyPrincipal;
+            }
+            else {
+                balance = model.updateBalance();
+            }
 
             // add values to array
-            String[] values = {Integer.toString(pdLength),
-                    Double.toString(monthlyPrincipal),
-                    Double.toString(monthlyInterest),
-                    Double.toString(monthlyPmt),
-                    Double.toString(balance)
+            String[] values = {df.format(pdLength),
+                    "$"+df.format(monthlyPrincipal),
+                    "$"+df.format(monthlyInterest),
+                    "$"+df.format(monthlyPmt),
+                    "$"+df.format(balance)
             };
             // add array to list
             valuesList.add(values);
