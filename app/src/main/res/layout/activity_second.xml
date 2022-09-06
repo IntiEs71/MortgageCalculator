@@ -11,33 +11,20 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fadeScrollbars="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
         <TableLayout
             android:id="@+id/table"
-            android:layout_width="369dp"
+            android:layout_width="match_parent"
             android:layout_height="660dp"
+            android:translationY="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.492">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-
-            <TableRow
-                android:layout_width="373dp"
-                android:layout_height="45dp"
-                />
-        </TableLayout>
+            app:layout_constraintVertical_bias="0.492" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

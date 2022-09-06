@@ -86,8 +86,6 @@ public class SecondActivity extends AppCompatActivity {
 
         }
 
-
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

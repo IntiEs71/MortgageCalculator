@@ -19,7 +19,7 @@ public class MortgageModel {
     // Default Constructor
     public MortgageModel(double loanAmount, double loanRate, int loanPdYrs){
         this.loanAmount = loanAmount;
-        this.loanRate = loanRate;
+        this.loanRate = loanRate/100;
         this.loanPdYrs = loanPdYrs;
         this.principal = loanAmount;
 
