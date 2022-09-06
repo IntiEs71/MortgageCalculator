@@ -44,7 +44,7 @@ public class SecondActivity extends AppCompatActivity {
 
         TableLayout table = this.findViewById(R.id.table);
 
-        // get row
+        // get schedule
         ArrayList<String[] > list = controller.getMonthlySchedule();
 
         for( int i = 0; i < list.size(); i++){
