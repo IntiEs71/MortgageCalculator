@@ -132,8 +132,17 @@ class MainActivity : AppCompatActivity() {
         })
 
 
+
+
         calc.setOnClickListener {
                 val intent = Intent(this, SecondActivity::class.java)
+
+                // sends user input data to second activity
+                //val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("loanAmount", amount.getText().toString())
+                intent.putExtra("loanRate", rate.getText().toString())
+                intent.putExtra("loanPdYrs", period.getText().toString())
+
                 startActivity(intent)
         }
     }
