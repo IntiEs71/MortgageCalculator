@@ -1,15 +1,16 @@
 package com.example.homemortgage.view
 
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homemortgage.R
-import android.text.TextWatcher
-import android.text.Editable
 
-import android.widget.Button
-import android.content.Intent
-import android.os.Bundle
-import android.widget.EditText
-import com.example.homemortgage.model.MortgageModel
 
 /**
  * Inti Espejo
@@ -25,6 +26,15 @@ class MainActivity : AppCompatActivity() {
         if (bar != null) {
             bar.setTitle("Mortgage Calculator")
         }
+
+        // Define ColorDrawable object and parse color
+        // using parseColor method
+        // with color hash code as its parameter
+        val colorDrawable = ColorDrawable(Color.parseColor("#05619F"))
+
+        // Set BackgroundDrawable
+        bar!!.setBackgroundDrawable(colorDrawable)
+
 
         // calculate button
         val calc = findViewById<Button>(R.id.calcButton)

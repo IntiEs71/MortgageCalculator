@@ -1,5 +1,7 @@
 package com.example.homemortgage.view;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TableLayout;
@@ -33,6 +35,11 @@ public class SecondActivity extends AppCompatActivity {
             // enables back button
             bar.setDisplayHomeAsUpEnabled(true);
         }
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#05619F"));
+
+        // Set BackgroundDrawable
+        bar.setBackgroundDrawable(colorDrawable);
+
 
         double amount2 = 0.00;
         double rate2 = 0.00;
@@ -94,6 +101,7 @@ public class SecondActivity extends AppCompatActivity {
             balance.setText(list.get(i)[4]);
 
             // set padding
+
             period.setPadding(10, 10, 40, 10);
             principal.setPadding(10, 10, 40, 10);
             interest.setPadding(10, 10, 40, 10);
