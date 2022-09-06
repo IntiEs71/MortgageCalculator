@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         var bar = getSupportActionBar()
 
         if (bar != null) {
@@ -38,8 +37,10 @@ class MainActivity : AppCompatActivity() {
         val amount = findViewById<EditText>(R.id.amountEditText)
         val principal = findViewById<EditText>(R.id.principalEditText)
 
-
-        //
+        // sends input data to second activity
+        val intent = Intent(this, SecondActivity::class.java)
+        intent.putExtra("amount")
+        startActivity(intent)
 
         period.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {

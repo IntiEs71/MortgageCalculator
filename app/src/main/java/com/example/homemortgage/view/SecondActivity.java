@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.homemortgage.controller.MortgageController;
 import com.example.homemortgage.model.MortgageModel;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -22,23 +21,27 @@ import kotlin.jvm.internal.Intrinsics;
 
 public class SecondActivity extends AppCompatActivity {
 
-
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_second);
 
-
-
-        // set title
+        // creates action bar
         ActionBar bar = this.getSupportActionBar();
         if (bar != null) {
+            // sets title
             bar.setTitle("Amortization Schedule");
-            // shows back button
+            // enables back button
             bar.setDisplayHomeAsUpEnabled(true);
         }
 
+        // receives user input data from MainActivity
+        Bundle extras = getIntent().getExtras();
+        String amount = extras.getString("amount");
+
+
+
         // set model, view, and controller
-        MortgageModel model = new MortgageModel(100000.0D, 0.05D, 10);
+        MortgageModel model = new MortgageModel(amount, 0.05D, 10);
         SecondActivity view = new SecondActivity();
         MortgageController controller = new MortgageController(model, view);
 
@@ -85,10 +88,10 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
-    public boolean onOptionsItemSelected(@NotNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         Intrinsics.checkNotNullParameter(item, "item");
         switch(item.getItemId()) {
-            case R.id.home:
+            case android.R.id.home:
                 this.finish();
                 return true;
             default:
