@@ -65,8 +65,17 @@ public class SecondActivity extends AppCompatActivity {
         String pd = extras.getString("loanPdYrs");
         int pd2 = Integer.parseInt(pd);
 
+        double downPayment2 = 0;
+        String downPayment = extras.getString("downPmt");
+        if (downPayment.contains(".")) {
+            downPayment2 = Double.parseDouble(downPayment);
+        }
+        else {
+            downPayment2 = Integer.parseInt(downPayment);
+        }
+
         // set model, view, and controller
-        MortgageModel model = new MortgageModel(amount2, rate2, pd2);
+        MortgageModel model = new MortgageModel(amount2, rate2, pd2, downPayment2);
         SecondActivity view = new SecondActivity();
         MortgageController controller = new MortgageController(model, view);
 

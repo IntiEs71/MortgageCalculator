@@ -17,6 +17,8 @@ public class MortgageModel {
     private double interestPmt;
     private double monthlyPmt;
 
+    private double downPmt;
+
     /**
      * Default Constructor
      * @param loanAmount
@@ -25,8 +27,10 @@ public class MortgageModel {
      * double value representing total loan rate
      * @param loanPdYrs
      * int value representing loan period in years
+     * @param downPmt
+     * double value representing downpayment
      */
-    public MortgageModel(double loanAmount, double loanRate, int loanPdYrs){
+    public MortgageModel(double loanAmount, double loanRate, int loanPdYrs, double downPmt){
         this.loanAmount = loanAmount;
         // convert percentage double to decimal
         this.loanRate = loanRate/100;
@@ -35,8 +39,14 @@ public class MortgageModel {
 
         this.principalPmt = 0;
         this.interestPmt = 0;
+        this.downPmt = downPmt;
+        updateWithDownPmt();
     }
 
+    public void updateWithDownPmt(){
+        principal -= downPmt;
+        loanAmount-= downPmt;
+    }
     /**
      * given loan period in years calculate number of monthly payments
      * @return int value of number of payments

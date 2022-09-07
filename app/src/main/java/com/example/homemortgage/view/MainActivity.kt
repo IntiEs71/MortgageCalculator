@@ -48,15 +48,6 @@ class MainActivity : AppCompatActivity() {
         val amount = findViewById<EditText>(R.id.amountEditText)
         val principal = findViewById<EditText>(R.id.principalEditText)
 
-        // sends user input data to second activity
-        //val intent = Intent(this, SecondActivity::class.java)
-        //intent.putExtra("amount")
-        //startActivity(intent)
-        //var intent = Intent(this, SecondActivity::class.java)
-        //var model = MortgageModel(100.0, 2.0, 2);
-        //intent.putExtra("MortgageModel", model)
-        //intent.putExtra("MortgageModel", model)
-
         period.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
@@ -152,6 +143,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("loanAmount", amount.getText().toString())
                 intent.putExtra("loanRate", rate.getText().toString())
                 intent.putExtra("loanPdYrs", period.getText().toString())
+                intent.putExtra("downPmt", principal.getText().toString())
 
                 startActivity(intent)
         }
