@@ -4,6 +4,7 @@ import com.example.homemortgage.model.MortgageModel;
 import com.example.homemortgage.view.SecondActivity;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import android.graphics.Typeface;
 
 /**
  * Controller class contains view and model and getter for schedule

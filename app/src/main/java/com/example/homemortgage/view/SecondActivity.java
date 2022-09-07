@@ -110,12 +110,16 @@ public class SecondActivity extends AppCompatActivity {
             balance.setText(list.get(i)[4]);
 
             // set padding
-
             period.setPadding(10, 10, 40, 10);
             principal.setPadding(10, 10, 40, 10);
             interest.setPadding(10, 10, 40, 10);
             monthly.setPadding(10, 10, 40, 10);
             balance.setPadding(10, 10, 40, 10);
+
+            // changes color of rows
+            if (i % 2 == 0) {
+                row.setBackgroundColor(Color.parseColor("#e4e8f0"));
+            }
 
             // add views
             row.addView(period);
