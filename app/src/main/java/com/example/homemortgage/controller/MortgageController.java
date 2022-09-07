@@ -4,13 +4,11 @@ import com.example.homemortgage.model.MortgageModel;
 import com.example.homemortgage.view.SecondActivity;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import android.graphics.Typeface;
 
 /**
  * Controller class contains view and model and getter for schedule
  */
 public class MortgageController {
-
     private MortgageModel model;
     private SecondActivity view;
 
@@ -31,7 +29,6 @@ public class MortgageController {
      * @return an ArrayList of String arrays containing values that is called in view
      */
     public ArrayList<String[] > getMonthlySchedule() {
-
         ArrayList<String[]> valuesList = new ArrayList<String[]>();
 
         int pdLength = model.calcNumPayments();
@@ -42,7 +39,6 @@ public class MortgageController {
         DecimalFormat df = new DecimalFormat("0.00");
 
         for (int i = 0; i < pdLength; i++) {
-
             double monthlyPmt = model.calcMonthlyPmt();
 
             // calculations
@@ -53,7 +49,7 @@ public class MortgageController {
             double monthlyPrincipal = model.getPrincipalPmt();
             double balance = 0;
 
-            if(i == pdLength-1){
+            if (i == pdLength - 1) {
                 monthlyPrincipal = model.getBalance() - model.getInterestPmt();
                 monthlyPmt = monthlyInterest + monthlyPrincipal;
             }
@@ -68,9 +64,11 @@ public class MortgageController {
                     "$"+df.format(monthlyPmt),
                     "$"+df.format(balance)
             };
+
             // add array to list
             valuesList.add(values);
         }
+
         // return list of arrays
         return valuesList;
     }

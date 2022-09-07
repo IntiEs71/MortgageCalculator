@@ -11,7 +11,6 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homemortgage.R
 
-
 /**
  * Inti Espejo
  * James Jang
@@ -34,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         // Set BackgroundDrawable
         bar!!.setBackgroundDrawable(colorDrawable)
-
 
         // calculate button
         val calc = findViewById<Button>(R.id.calcButton)
@@ -131,9 +129,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
-
-
 
         calc.setOnClickListener {
                 val intent = Intent(this, SecondActivity::class.java)

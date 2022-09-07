@@ -12,11 +12,9 @@ public class MortgageModel {
     private double loanRate;
     private double loanAmount;
     private double principal;
-
     private double principalPmt;
     private double interestPmt;
     private double monthlyPmt;
-
     private double downPmt;
 
     /**
@@ -30,23 +28,23 @@ public class MortgageModel {
      * @param downPmt
      * double value representing downpayment
      */
-    public MortgageModel(double loanAmount, double loanRate, int loanPdYrs, double downPmt){
+    public MortgageModel(double loanAmount, double loanRate, int loanPdYrs, double downPmt) {
         this.loanAmount = loanAmount;
         // convert percentage double to decimal
-        this.loanRate = loanRate/100;
+        this.loanRate = loanRate / 100;
         this.loanPdYrs = loanPdYrs;
         this.principal = loanAmount;
-
         this.principalPmt = 0;
         this.interestPmt = 0;
         this.downPmt = downPmt;
         updateWithDownPmt();
     }
 
-    public void updateWithDownPmt(){
+    public void updateWithDownPmt() {
         principal -= downPmt;
-        loanAmount-= downPmt;
+        loanAmount -= downPmt;
     }
+
     /**
      * given loan period in years calculate number of monthly payments
      * @return int value of number of payments
@@ -56,13 +54,12 @@ public class MortgageModel {
     }
 
     /**
-     *  calculate monthly mortgage payment formula
-     *
+     * calculate monthly mortgage payment formula
      * @return double value
      */
-    public double calcMonthlyPmt(){
-        double monthly = (loanRate/12 * principal) /
-                ( 1 - ( Math.pow( (1 + loanRate/12), -calcNumPayments() ) ) );
+    public double calcMonthlyPmt() {
+        double monthly = (loanRate / 12 * principal) /
+                (1 - (Math.pow((1 + loanRate / 12), -calcNumPayments())));
         BigDecimal bd = new BigDecimal(monthly).setScale(2, RoundingMode.HALF_EVEN);
         monthly = bd.doubleValue();
         return monthly;

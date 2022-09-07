@@ -22,7 +22,6 @@
         app:layout_constraintVertical_bias="0.342" />
 
     <TextView
-
         android:id="@+id/principalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +36,6 @@
         app:layout_constraintVertical_bias="0.694" />
 
     <TextView
-
         android:id="@+id/loanPeriodTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +50,6 @@
         app:layout_constraintVertical_bias="0.166" />
 
     <TextView
-
         android:id="@+id/loanAmtTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

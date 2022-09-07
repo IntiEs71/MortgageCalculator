@@ -7,28 +7,24 @@ import android.view.MenuItem;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import com.example.homemortgage.R;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.homemortgage.controller.MortgageController;
 import com.example.homemortgage.model.MortgageModel;
-
 import org.jetbrains.annotations.Nullable;
-
 import java.util.ArrayList;
-
 import kotlin.jvm.internal.Intrinsics;
+import android.graphics.Typeface;
 
 public class SecondActivity extends AppCompatActivity {
-
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_second);
 
         // creates action bar
         ActionBar bar = this.getSupportActionBar();
+
         if (bar != null) {
             // sets title
             bar.setTitle("Amortization Schedule");
@@ -40,13 +36,14 @@ public class SecondActivity extends AppCompatActivity {
         // Set BackgroundDrawable
         bar.setBackgroundDrawable(colorDrawable);
 
-
         double amount2 = 0.00;
         double rate2 = 0.00;
 
         // receives user input data from MainActivity
         Bundle extras = getIntent().getExtras();
         String amount = extras.getString("loanAmount");
+
+        // amount
         if (amount.contains(".")) {
             amount2 = Double.parseDouble(amount);
         }
@@ -54,6 +51,7 @@ public class SecondActivity extends AppCompatActivity {
             amount2 = Integer.parseInt(amount);
         }
 
+        // rate
         String rate = extras.getString("loanRate");
         if (rate.contains(".")) {
             rate2 = Double.parseDouble(rate);
@@ -62,9 +60,11 @@ public class SecondActivity extends AppCompatActivity {
             rate2 = Integer.parseInt(rate);
         }
 
+        // period
         String pd = extras.getString("loanPdYrs");
         int pd2 = Integer.parseInt(pd);
 
+        // down payment
         double downPayment2 = 0;
         String downPayment = extras.getString("downPmt");
         if (downPayment.contains(".")) {
@@ -84,9 +84,7 @@ public class SecondActivity extends AppCompatActivity {
         // get schedule
         ArrayList<String[] > list = controller.getMonthlySchedule();
 
-        System.out.println("Size"+list.size());
-
-        for( int i = 0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             // set views
             TextView period = new TextView(this);
             TextView principal = new TextView(this);
@@ -98,10 +96,10 @@ public class SecondActivity extends AppCompatActivity {
             TableRow row = new TableRow(this);
 
             // set text
-            if(i == 0){
+            if (i == 0) {
                 period.setText("Month");
             }
-            else{
+            else {
                 period.setText(String.valueOf(i));
             }
             principal.setText(list.get(i)[1]);
@@ -121,6 +119,14 @@ public class SecondActivity extends AppCompatActivity {
                 row.setBackgroundColor(Color.parseColor("#e4e8f0"));
             }
 
+            if (i == 0) {
+                period.setTypeface(null, Typeface.BOLD);
+                principal.setTypeface(null, Typeface.BOLD);
+                interest.setTypeface(null, Typeface.BOLD);
+                monthly.setTypeface(null, Typeface.BOLD);
+                balance.setTypeface(null, Typeface.BOLD);
+            }
+
             // add views
             row.addView(period);
             row.addView(principal);
@@ -129,9 +135,7 @@ public class SecondActivity extends AppCompatActivity {
             row.addView(balance);
 
             table.addView(row, (new android.widget.TableLayout.LayoutParams(-2, -2)));
-
         }
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
