@@ -1,5 +1,5 @@
 ![Feature Graphic](feature_graphic.png)
-# Android Home Mortgage Calculator App
+# Home Mortgage Calculator Android App
 
 ## Authors: Inti Espejo & James Jang
 
