@@ -1,7 +1,7 @@
 ![Feature Graphic](feature_graphic.png)
 # Home Mortgage Calculator Android App
 
-## Developers: Inti Espejo & James Jang
+## Developers: Inti Espejo & James Jang (JinTech Studios)
 
 ![App Icon](app_icon.png)
 
